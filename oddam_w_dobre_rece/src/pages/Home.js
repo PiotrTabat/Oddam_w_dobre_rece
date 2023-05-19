@@ -9,6 +9,11 @@ const HomeContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    height: auto;
+    margin: 1em auto;
+  }
 `;
 
 const LeftContainer = styled.div`

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Home from "./Home";
 import ThreeColumns from "./ThreeColumns";
-import HowToDo from "./HowToDo";
+import SimpleSteps from "./SimpleSteps";
 import AboutUs from "./AboutUs";
 import WhomWeHelp from "./WhomWeHelp";
 import Contact from "./Contact";
@@ -22,7 +22,7 @@ const Main = () => {
         <MainContainer>
             <Home />
             <ThreeColumns />
-            <HowToDo />
+            <SimpleSteps />
             <AboutUs />
             <WhomWeHelp />
             <Contact />
