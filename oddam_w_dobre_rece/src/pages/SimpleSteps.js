@@ -5,6 +5,8 @@ import componentIcon1 from '../assets/Icon-1.svg';
 import competitionImage2 from '../assets/Icon-2.svg';
 import competitionImage3 from '../assets/Icon-3.svg';
 import competitionImage4 from '../assets/Icon-4.svg';
+import { Element, scroller } from 'react-scroll';
+
 
 const SimpleStepsContainer = styled.div`
   width: 100%;
@@ -90,41 +92,51 @@ const SimpleStepsButton = styled.button`
   border: 0.75px solid #3C3C3C;
 `;
 
+const handleButtonClick = () => {
+    scroller.scrollTo('simpleSteps', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+};
+
 const SimpleSteps = () => {
     return (
-        <SimpleStepsContainer>
-            <Title>Wystarczą 4 proste kroki</Title>
-            <DecorationImage src={decorationImage} alt="Decoration"/>
-            <SimpleComponentContainer>
-                <ComponentContainer>
-                    <ComponentIcon src={componentIcon1} alt="Icon 1"/>
-                    <ComponentTitle>Wybierz rzeczy</ComponentTitle>
-                    <Separator/>
-                    <ComponentText>ubrania, zabawki, <br/> sprzęt i inne</ComponentText>
-                </ComponentContainer>
-                <ComponentContainer>
-                    <ComponentIcon src={competitionImage2} alt="Icon 2"/>
-                    <ComponentTitle>Spakuj je</ComponentTitle>
-                    <Separator/>
-                    <ComponentText>skorzystaj z <br/> worków na śmieci</ComponentText>
-                </ComponentContainer>
-                <ComponentContainer>
-                    <ComponentIcon src={competitionImage3} alt="Icon 3"/>
-                    <ComponentTitle>Zdecyduj komu <br/> chcesz pomóc</ComponentTitle>
-                    <Separator/>
-                    <ComponentText>wybierz zaufane <br/> miejsce</ComponentText>
-                </ComponentContainer>
-                <ComponentContainer>
-                    <ComponentIcon src={competitionImage4} alt="Icon 4"/>
-                    <ComponentTitle>Zamów kuriera</ComponentTitle>
-                    <Separator/>
-                    <ComponentText>kurier przyjedzie <br/> w dogodnym terminie</ComponentText>
-                </ComponentContainer>
-            </SimpleComponentContainer>
-            <SimpleStepsButtonContainer>
-                <SimpleStepsButton>ODDAJ <br/> RZECZY</SimpleStepsButton>
-            </SimpleStepsButtonContainer>
-        </SimpleStepsContainer>
+        <Element name="simpleSteps" className="element">
+            <SimpleStepsContainer>
+                <Title>Wystarczą 4 proste kroki</Title>
+                <DecorationImage src={decorationImage} alt="Decoration"/>
+                <SimpleComponentContainer>
+                    <ComponentContainer>
+                        <ComponentIcon src={componentIcon1} alt="Icon 1"/>
+                        <ComponentTitle>Wybierz rzeczy</ComponentTitle>
+                        <Separator/>
+                        <ComponentText>ubrania, zabawki, <br/> sprzęt i inne</ComponentText>
+                    </ComponentContainer>
+                    <ComponentContainer>
+                        <ComponentIcon src={competitionImage2} alt="Icon 2"/>
+                        <ComponentTitle>Spakuj je</ComponentTitle>
+                        <Separator/>
+                        <ComponentText>skorzystaj z <br/> worków na śmieci</ComponentText>
+                    </ComponentContainer>
+                    <ComponentContainer>
+                        <ComponentIcon src={competitionImage3} alt="Icon 3"/>
+                        <ComponentTitle>Zdecyduj komu <br/> chcesz pomóc</ComponentTitle>
+                        <Separator/>
+                        <ComponentText>wybierz zaufane <br/> miejsce</ComponentText>
+                    </ComponentContainer>
+                    <ComponentContainer>
+                        <ComponentIcon src={competitionImage4} alt="Icon 4"/>
+                        <ComponentTitle>Zamów kuriera</ComponentTitle>
+                        <Separator/>
+                        <ComponentText>kurier przyjedzie <br/> w dogodnym terminie</ComponentText>
+                    </ComponentContainer>
+                </SimpleComponentContainer>
+                <SimpleStepsButtonContainer>
+                    <SimpleStepsButton onClick={handleButtonClick}>ODDAJ <br/> RZECZY</SimpleStepsButton>
+                </SimpleStepsButtonContainer>
+            </SimpleStepsContainer>
+        </Element>
     );
 };
 

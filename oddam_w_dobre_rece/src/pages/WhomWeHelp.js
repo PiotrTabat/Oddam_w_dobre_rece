@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import decorationImage from "../assets/Decoration.svg";
+import {Element } from 'react-scroll';
 
 const WhomWeHelpContainer = styled.div`
   width: 100%;
@@ -86,9 +87,9 @@ const WhomComponent = styled.div`
   align-items: center;
 `;
 
-
 const WhomWeHelp = () => {
     return (
+        <Element name="whomWeHelp" className="element">
         <WhomWeHelpContainer>
             <Up>
                 <TitleComponent>
@@ -105,6 +106,7 @@ const WhomWeHelp = () => {
                 <WhomComponent>{'Fundacje'}</WhomComponent>
             </Down>
         </WhomWeHelpContainer>
+        </Element>
     );
 };
 

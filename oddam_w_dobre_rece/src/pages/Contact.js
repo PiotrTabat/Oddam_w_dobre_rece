@@ -4,6 +4,7 @@ import contactImage from '../assets/Background-Contact-Form.jpg';
 import decorationImage from '../assets/Decoration.svg';
 import facebookIcon from '../assets/Facebook.svg';
 import instagramIcon from '../assets/Instagram.svg';
+import { Element } from 'react-scroll';
 
 const ContactContainer = styled.div`
   position: relative;
@@ -150,9 +151,9 @@ const SocialIcon = styled.img`
   height: 1.5rem;
 `;
 
-
 const Contact = () => {
     return (
+        <Element name="contact" className="element">
         <ContactContainer>
             <Component>
                 <ContactBackground src={contactImage} alt="Poskładane rzeczy"/>
@@ -189,6 +190,7 @@ const Contact = () => {
                 </SocialIcons>
             </FooterContainer>
         </ContactContainer>
+        </Element>
     );
 };
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Image from '../assets/People.jpg';
 import Decoration from '../assets/Decoration.svg';
 import SignatureImage from '../assets/Signature.svg';
+import { Element } from 'react-scroll';
 
 const AboutUsContainer = styled.div`
   width: 100%;
@@ -75,8 +76,10 @@ const ComponentRight = styled.div`
   }
 `;
 
+
 const AboutUs = () => {
     return (
+        <Element name="aboutUs" className="element">
         <AboutUsContainer>
             <ComponentLeft>
                 <Title>O nas</Title>
@@ -92,6 +95,7 @@ const AboutUs = () => {
             </ComponentLeft>
             <ComponentRight/>
         </AboutUsContainer>
+        </Element>
     );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import backgroundImage from '../assets/Home-Hero-Image.jpg';
 import decorationImage from '../assets/Decoration.svg';
+import { Element, scroller } from 'react-scroll';
 
 const HomeContainer = styled.div`
   display: flex;
@@ -106,7 +107,6 @@ const DecorationButtonLeft = styled.button`
   padding: 1rem 2.5rem;
   color: #000000;
   cursor: pointer;
-  
 `;
 
 const DecorationButtonRight = styled.button`
@@ -114,41 +114,81 @@ const DecorationButtonRight = styled.button`
   margin-bottom: 20px;
   margin-left: 1rem;
   background: none;
-padding: 1rem;
+  padding: 1rem;
   color: #000000;
   cursor: pointer;
   border: 1px solid black;
 `;
 
+const handleStartButtonClick = () => {
+    scroller.scrollTo('home', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+};
+const handleSimpleStepsButtonClick = () => {
+    scroller.scrollTo('simpleSteps', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+};
+const handleAboutUsButtonClick = () => {
+    scroller.scrollTo('aboutUs', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+}
+const handleWhomWeHelpButtonClick = () => {
+    scroller.scrollTo('whomWeHelp', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+}
+
+const handleContactButtonClick = () => {
+    scroller.scrollTo('contact', {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+    });
+}
+
+
 
 const Home = () => {
     return (
-        <HomeContainer>
-            <LeftContainer/>
-            <RightContainer>
-                <TopNavigation>
-                    <Button>Zaloguj</Button>
-                    <Button>Załóż konto</Button>
-                </TopNavigation>
-                <ButtonContainer>
-                    <Button>Start</Button>
-                    <Button>O co chodzi</Button>
-                    <Button>O nas</Button>
-                    <Button>Fundacja i organizacje</Button>
-                    <Button>Kontakt</Button>
-                </ButtonContainer>
-                <DecorationCenter>
-                    <DecorationText>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</DecorationText>
-                    <CenteredDecorationImage>
-                        <DecorationImage src={decorationImage} alt="Decoration"/>
-                    </CenteredDecorationImage>
-                    <DecorationButtonContainer>
-                        <DecorationButtonLeft>ODDAJ <br/> RZECZY</DecorationButtonLeft>
-                        <DecorationButtonRight>ZORGANIZUJ <br/> ZBIÓRKĘ</DecorationButtonRight>
-                    </DecorationButtonContainer>
-                </DecorationCenter>
-            </RightContainer>
-        </HomeContainer>
+        <Element name="home" className="element">
+            <HomeContainer>
+                <LeftContainer />
+                <RightContainer>
+                    <TopNavigation>
+                        <Button>Zaloguj</Button>
+                        <Button>Załóż konto</Button>
+                    </TopNavigation>
+                    <ButtonContainer>
+                        <Button onClick={handleStartButtonClick}>Start</Button>
+                        <Button onClick={handleSimpleStepsButtonClick}>O co chodzi</Button>
+                        <Button onClick={handleAboutUsButtonClick}>O nas</Button>
+                        <Button onClick={handleWhomWeHelpButtonClick}>Fundacja i organizacje</Button>
+                        <Button onClick={handleContactButtonClick}>Kontakt</Button>
+                    </ButtonContainer>
+                    <DecorationCenter>
+                        <DecorationText>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</DecorationText>
+                        <CenteredDecorationImage>
+                            <DecorationImage src={decorationImage} alt="Decoration"/>
+                        </CenteredDecorationImage>
+                        <DecorationButtonContainer>
+                            <DecorationButtonLeft>ODDAJ <br/> RZECZY</DecorationButtonLeft>
+                            <DecorationButtonRight>ZORGANIZUJ <br/> ZBIÓRKĘ</DecorationButtonRight>
+                        </DecorationButtonContainer>
+                    </DecorationCenter>
+                </RightContainer>
+            </HomeContainer>
+        </Element>
     );
 };
 
