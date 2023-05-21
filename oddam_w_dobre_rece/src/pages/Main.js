@@ -10,7 +10,7 @@ import Contact from "./Contact";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: auto;
   background: #FFFFFF;
   opacity: 1;

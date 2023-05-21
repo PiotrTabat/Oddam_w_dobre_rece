@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import backgroundImage from '../assets/3-Columns-Background.jpg';
 
 const ThreeColumnsContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 384px;
   background: url(${backgroundImage}) no-repeat center;
   display: flex;

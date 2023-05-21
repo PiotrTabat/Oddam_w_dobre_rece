@@ -7,7 +7,7 @@ import competitionImage3 from '../assets/Icon-3.svg';
 import competitionImage4 from '../assets/Icon-4.svg';
 
 const SimpleStepsContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 624px;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,6 @@ const SimpleComponentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   text-align: center;
 `;
 
