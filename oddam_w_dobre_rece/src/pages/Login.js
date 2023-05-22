@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import decorationImage from '../assets/Decoration.svg';
 import {Element} from 'react-scroll';
 import LoginNavigation from "../components/LoginNavigation";
-import Navbar from "../components/Navbar";
-
-
+import ButtonNavbar from "../components/ButtonNavbar";
 
 
 const LoginContainer = styled.div`
@@ -113,7 +111,7 @@ const Login = () => {
             <LoginContainer>
                 <NavbarContainer>
                 <LoginNavigation/>
-                <Navbar/>
+                <ButtonNavbar/>
                 </NavbarContainer>
                 <Title>Zaloguj się</Title>
                     <DecorationImage src={decorationImage} alt="Decoration"/>
