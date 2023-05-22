@@ -5,6 +5,8 @@ import decorationImage from '../assets/Decoration.svg';
 import facebookIcon from '../assets/Facebook.svg';
 import instagramIcon from '../assets/Instagram.svg';
 import { Element } from 'react-scroll';
+import { useState } from 'react';
+import axios from 'axios'
 
 const ContactContainer = styled.div`
   position: relative;
@@ -54,7 +56,7 @@ const ContactFormContainer = styled.div`
 
 
 const ContactForm = styled.form`
-  margin-top: 3rem;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -151,30 +153,87 @@ const SocialIcon = styled.img`
   height: 1.5rem;
 `;
 
+
+
 const Contact = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [errors, setErrors] = useState({});
+
+    const validate = () => {
+        const newErrors = {};
+        if (!name || name.indexOf(' ') >= 0) newErrors.name = 'Imię powinno być jednym wyrazem';
+        if (!email || !email.includes('@')) newErrors.email = 'Email powinien być poprawny';
+        if (!message || message.length < 120) newErrors.message = 'Wiadomość musi mieć conajmniej 120 znaków';
+        return newErrors;
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const errorObj = validate();
+        if (Object.keys(errorObj).length > 0) {
+            setErrors(errorObj);
+        } else {
+            try {
+                const response = await axios.post('https://fer-api.coderslab.pl/v1/portfolio/contact', {
+                    name, email, message
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (response.data.status === 'success') {
+                    alert('Wiadomość została pomyślnie wysłana');
+                } else {
+                    alert('Wystąpił błąd podczas wysyłania wiadomości');
+                }
+            } catch (error) {
+                if (error.response && error.response.data && error.response.data.errors) {
+                    setErrors(error.response.data.errors);
+                }
+            }
+        }
+    }
     return (
-        <Element name="contact" className="element">
+        <Element name="contact" className="element" id="contact">
         <ContactContainer>
             <Component>
                 <ContactBackground src={contactImage} alt="Poskładane rzeczy"/>
                 <ContactFormContainer>
                     <Title>Skontaktuj się z nami</Title>
                     <Decoration src={decorationImage} alt="Decoration"/>
-                    <ContactForm>
+                    <ContactForm onSubmit={handleSubmit}>
                         <InputContainer>
                             <InputDiv>
                                 <Label>Wpisz swoje imię</Label>
-                                <InputField type="text" placeholder="Krzysztof"/>
+                                <InputField
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Krzysztof"
+                                />
+                                {errors.name && <p>{errors.name}</p>}
                             </InputDiv>
                             <InputDiv>
                                 <Label>Wpisz swój email</Label>
-                                <InputField type="email" placeholder="abc@xyz.pl"/>
+                                <InputField
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="abc@xyz.pl"
+                                />
+                                {errors.email && <p>{errors.email}</p>}
                             </InputDiv>
                         </InputContainer>
                         <InputDiv>
                             <Label>{"Wpisz swoją wiadomość"}</Label>
                             <TextArea
-                                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                            />
+                            {errors.message && <p>{errors.message}</p>}
                         </InputDiv>
                         <SendButtonContainer>
                             <SendButton>Wyślij</SendButton>
@@ -195,3 +254,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
