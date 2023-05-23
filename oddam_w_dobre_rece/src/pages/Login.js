@@ -4,6 +4,7 @@ import decorationImage from '../assets/Decoration.svg';
 import {Element} from 'react-scroll';
 import LoginNavigation from "../components/LoginNavigation";
 import ButtonNavbar from "../components/ButtonNavbar";
+import {Link} from "react-router-dom";
 
 
 const LoginContainer = styled.div`
@@ -100,6 +101,10 @@ const LoginButtonRight = styled.button`
   color: #000000;
   cursor: pointer;
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -136,8 +141,8 @@ const Login = () => {
                 </InputDiv>
                 </InputContainer>
                 <LoginButtonContainer>
-                    <LoginButtonLeft>Załóż konto</LoginButtonLeft>
-                    <LoginButtonRight>Zaloguj się</LoginButtonRight>
+                    <LoginButtonLeft><StyledLink to='/register'>Załóż konto</StyledLink></LoginButtonLeft>
+                    <LoginButtonRight><StyledLink to='/login'>Zaloguj się</StyledLink></LoginButtonRight>
                 </LoginButtonContainer>
             </LoginContainer>
         </Element>

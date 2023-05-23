@@ -8,7 +8,7 @@ import SimpleSteps from "./components/SimpleSteps";
 import AboutUs from "./components/AboutUs";
 import WhomWeHelp from "./components/WhomWeHelp";
 import Contact from "./components/Contact";
-
+import Logout from "./pages/Logout";
 
 const App = () => {
     return (
@@ -17,6 +17,7 @@ const App = () => {
                 <Route path="/" element={<Main />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/logout" element={<Logout />} />
                 <Route path="/hero" element={<Hero />} />
                 <Route path="/simplesteps" element={<SimpleSteps />} />
                 <Route path="/aboutus" element={<AboutUs />} />
