@@ -29,7 +29,7 @@ const ContentTitle = styled.h3`
   margin: 1em 0;
 `;
 
-const ContentTextContainer = styled.p`
+const ContentTextContainer = styled.div`
   width: 70%;
   display: block;
   align-items: center;
@@ -62,9 +62,9 @@ const ButtonsContainer = styled.div`
 `;
 
 const Button = styled.button`
+  background: ${({$isActive}) => ($isActive ? '#B0AEAEFF' : 'none')};
   margin-bottom: 10px;
   margin-right: 1rem;
-  background: none;
   border: none;
   padding: 0;
   color: #000000;
@@ -153,9 +153,24 @@ const WhomFundations = () => {
 
                 <div>
                     <ButtonsContainer>
-                        <Button onClick={() => handleButtonClick(1)}>1</Button>
-                        <Button onClick={() => handleButtonClick(2)}>2</Button>
-                        <Button onClick={() => handleButtonClick(3)}>3</Button>
+                        <Button
+                            onClick={() => handleButtonClick(1)}
+                            $isActive={page === 1}
+                        >
+                            1
+                        </Button>
+                        <Button
+                            onClick={() => handleButtonClick(2)}
+                            $isActive={page === 2}
+                        >
+                            2
+                        </Button>
+                        <Button
+                            onClick={() => handleButtonClick(3)}
+                            $isActive={page === 3}
+                        >
+                            3
+                        </Button>
                     </ButtonsContainer>
                 </div>
             </WhomFundationContainer>

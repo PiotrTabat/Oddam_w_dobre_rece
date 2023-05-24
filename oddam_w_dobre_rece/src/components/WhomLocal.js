@@ -30,7 +30,7 @@ const ContentTitle = styled.h3`
   margin: 1em 0;
 `;
 
-const ContentTextContainer = styled.p`
+const ContentTextContainer = styled.div`
   width: 70%;
   display: block;
   align-items: center;

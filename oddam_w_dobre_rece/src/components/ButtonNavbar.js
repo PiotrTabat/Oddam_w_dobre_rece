@@ -32,7 +32,7 @@ const ButtonNavbar = () => {
             <Button><StyledLink to='/'>Start</StyledLink></Button>
             <Button><StyledLink to='/simplesteps'>O co chodzi</StyledLink></Button>
             <Button><StyledLink to='/aboutus'>O nas</StyledLink></Button>
-            <Button><StyledLink to='/fundation'>Fundacja i organizacje</StyledLink></Button>
+            <Button><StyledLink to='/whomwehelp'>Fundacja i organizacje</StyledLink></Button>
             <Button><StyledLink to='/contact'>Kontakt</StyledLink></Button>
         </NavbarContainer>
     );
