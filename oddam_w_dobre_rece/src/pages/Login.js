@@ -5,6 +5,8 @@ import {Element} from 'react-scroll';
 import LoginNavigation from "../components/LoginNavigation";
 import ButtonNavbar from "../components/ButtonNavbar";
 import {Link} from "react-router-dom";
+import {supabase} from '../helper/supabaseClient';
+import {useNavigate} from "react-router-dom";
 
 
 const LoginContainer = styled.div`
@@ -24,7 +26,6 @@ const LoginContainer = styled.div`
 const NavbarContainer = styled.div`
   justify-content: flex-end;
   width: 100%;
-  margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 16px;
 `;
@@ -81,8 +82,8 @@ const LoginButtonContainer = styled.div`
   align-items: center;
   margin: 3rem;
   font-size: 16px;
-    width: 40%;
-  
+  width: 40%;
+
 `;
 
 const LoginButtonLeft = styled.button`
@@ -97,7 +98,7 @@ const LoginButtonRight = styled.button`
   margin: 1rem 0 0 2rem;
   background: none;
   border: black 1px solid;
-    padding: 1rem 2rem;
+  padding: 1rem 2rem;
   color: #000000;
   cursor: pointer;
 `;
@@ -108,44 +109,59 @@ const StyledLink = styled(Link)`
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
+    const handleLogin = async (email, password) => {
+        try {
+            const {error} = await supabase.auth.signInWithPassword({email, password});
 
+            if (error) {
+                throw error;
+            }
+            navigate('/');
+            window.location.reload();
+        } catch (error) {
+            alert(error.error_description || error.message);
+        }
+    }
 
     return (
         <Element name="login" className="element">
             <LoginContainer>
                 <NavbarContainer>
-                <LoginNavigation/>
-                <ButtonNavbar/>
+                    <LoginNavigation/>
+                    <ButtonNavbar/>
                 </NavbarContainer>
                 <Title>Zaloguj się</Title>
-                    <DecorationImage src={decorationImage} alt="Decoration"/>
+                <DecorationImage src={decorationImage} alt="Decoration"/>
                 <InputContainer>
-                <InputDiv>
-                    <Label>Email</Label>
-                    <InputField
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="abc@xyz.pl"
-                    />
-                </InputDiv>
-                <InputDiv>
-                    <Label>Hasło</Label>
-                    <InputField
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Twoje hasło"
-                    />
-                </InputDiv>
+                    <InputDiv>
+                        <Label>Email</Label>
+                        <InputField
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="abc@xyz.pl"
+                        />
+                    </InputDiv>
+                    <InputDiv>
+                        <Label>Hasło</Label>
+                        <InputField
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Twoje hasło"
+                        />
+                    </InputDiv>
                 </InputContainer>
                 <LoginButtonContainer>
                     <LoginButtonLeft><StyledLink to='/register'>Załóż konto</StyledLink></LoginButtonLeft>
-                    <LoginButtonRight><StyledLink to='/login'>Zaloguj się</StyledLink></LoginButtonRight>
+                    <LoginButtonRight onClick={() => handleLogin(email, password)}>Zaloguj się</LoginButtonRight>
                 </LoginButtonContainer>
             </LoginContainer>
         </Element>
     )
 };
+
 export default Login;
+

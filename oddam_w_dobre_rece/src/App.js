@@ -4,9 +4,12 @@ import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Logout from "./pages/Logout";
+import {UserProvider} from "./helper/UserProvider";
+
 
 const App = () => {
     return (
+        <UserProvider>
         <Router>
             <Routes>
                 <Route path="/" element={<Main />} />
@@ -15,6 +18,7 @@ const App = () => {
                 <Route path="/logout" element={<Logout />} />
             </Routes>
         </Router>
+        </UserProvider>
     );
 };
 
