@@ -1,6 +1,7 @@
 {
-  "name": "oddam_w_dobre_rece",
+  "name": "oddam",
   "version": "0.1.0",
+  "homepage": "http://www.t-bat.pl/oddam",
   "private": true,
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.2",

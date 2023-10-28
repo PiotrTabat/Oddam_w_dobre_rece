@@ -6,18 +6,17 @@ import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import {UserProvider} from "./helper/UserProvider";
 
-
 const App = () => {
     return (
         <UserProvider>
-        <Router>
-            <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/logout" element={<Logout />} />
-            </Routes>
-        </Router>
+            <Router basename="/oddam">
+                <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
+            </Router>
         </UserProvider>
     );
 };

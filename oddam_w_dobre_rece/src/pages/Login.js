@@ -5,7 +5,7 @@ import {Element} from 'react-scroll';
 import LoginNavigation from "../components/LoginNavigation";
 import ButtonNavbar from "../components/ButtonNavbar";
 import {Link} from "react-router-dom";
-import {supabase} from '../helper/supabaseClient';
+// import {supabase} from '../helper/supabaseClient';
 import {useNavigate} from "react-router-dom";
 
 
@@ -113,7 +113,7 @@ const Login = () => {
 
     const handleLogin = async (email, password) => {
         try {
-            const {error} = await supabase.auth.signInWithPassword({email, password});
+            const {error} = await ({email, password});
 
             if (error) {
                 throw error;

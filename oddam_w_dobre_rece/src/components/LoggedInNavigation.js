@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import {supabase} from '../helper/supabaseClient';
+// import {supabase} from '../helper/supabaseClient';
 import {useEffect, useState} from "react";
 
 
@@ -55,12 +55,6 @@ const LoggedInNavigation = ({user}) => {
 
     const handleLogout = async () => {
         try {
-            const {error} = await supabase.auth.signOut();
-
-            if (error) {
-                throw error;
-            }
-
             window.location.reload();
         } catch (error) {
             alert(error.error_description || error.message);
