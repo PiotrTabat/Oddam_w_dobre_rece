@@ -11,6 +11,12 @@ const NavbarContainer = styled.div`
   font-size: 20px;
   text-decoration: none;
   color: inherit;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+  }
 `;
 
 const Button = styled.button`
@@ -21,7 +27,12 @@ const Button = styled.button`
   padding: 0;
   color: #000000;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;

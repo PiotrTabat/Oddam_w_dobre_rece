@@ -10,6 +10,12 @@ const LoggedInContainer = styled.div`
   justify-content: flex-end;
   margin-top: 1rem;
   font-size: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -21,6 +27,10 @@ const StyledLink = styled(Link)`
   color: #000000;
   cursor: pointer;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 const GreetingContainer = styled.div`
@@ -31,6 +41,10 @@ const GreetingContainer = styled.div`
   padding: 0;
   color: #000000;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 const UserContainer = styled.div`
@@ -42,6 +56,10 @@ const UserContainer = styled.div`
   color: #3b3b3b;
   cursor: pointer;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 const LoggedInNavigation = ({user}) => {

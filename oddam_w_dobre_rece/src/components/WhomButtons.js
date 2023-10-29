@@ -8,30 +8,32 @@ const ButtonContainer = styled.div`
   align-items: center;
   margin: 3rem;
   font-size: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
 `;
 
-const WhomButtonLeft = styled.button`
+const Button = styled.button`
   background: ${({$isActive}) => ($isActive ? '#B0AEAEFF' : 'none')};
   border: black 1px solid;
-  padding: 1.1rem 2rem;
+  padding: 1rem 2rem;
   color: #000000;
   cursor: pointer;
-  gap: 1rem;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    margin-bottom: 1rem;
+  }
 `;
-const WhomButtonCenter = styled.button`
-  background: ${({$isActive}) => ($isActive ? '#B0AEAEFF' : 'none')};
-  border: black 1px solid;
-  padding: 0.4rem 2rem;
-  color: #000000;
-  cursor: pointer;
-`;
-const WhomButtonRight = styled.button`
-  background: ${({$isActive}) => ($isActive ? '#B0AEAEFF' : 'none')};
-  border: black 1px solid;
-  padding: 0.4rem 3rem;
-  color: #000000;
-  cursor: pointer;
-`;
+
+const WhomButtonLeft = styled(Button)``;
+const WhomButtonCenter = styled(Button)``;
+const WhomButtonRight = styled(Button)``;
 
 const WhomButtons = ({ onClick, activeButton }) => {
     return (

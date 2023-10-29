@@ -4,18 +4,20 @@ import {Element} from 'react-scroll';
 
 const WhomFundationContainer = styled.div`
   max-width: 1344px;
-  height: 100vh;
   margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2rem;
 
   @media (max-width: 768px) {
-    height: auto;
+    padding: 1rem;
   }
 `;
 
 const ContentContainer = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -30,27 +32,44 @@ const ContentTitle = styled.h3`
 `;
 
 const ContentTextContainer = styled.div`
-  width: 70%;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #000;
-  margin: 3rem 12rem;
+  padding: 1rem;
+  margin: 1rem 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ContentText1 = styled.p`
-  text-align: start;
-  margin: 0.1em 0;
   font-size: 1.2rem;
+  margin: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
+
 const ContentText2 = styled.p`
-  text-align: end;
-  margin: 0.1em 0;
   font-size: 0.8rem;
+  margin: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
 `;
+
 const ContentText3 = styled.p`
-  text-align: start;
-  margin: 0.1em 0;
   font-size: 0.8rem;
+  margin: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -70,6 +89,11 @@ const Button = styled.button`
   color: #000000;
   cursor: pointer;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
 `;
 
 const WhomFundations = () => {

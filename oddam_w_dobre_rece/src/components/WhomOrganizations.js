@@ -6,12 +6,14 @@ const WhomOrganizationsContainer = styled.div`
   max-width: 1344px;
   height: 100vh;
   margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   @media (max-width: 768px) {
     height: auto;
+    padding: 20px;
   }
 `;
 
@@ -31,26 +33,34 @@ const ContentTitle = styled.h3`
 
 const ContentTextContainer = styled.div`
   width: 70%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   border-bottom: 1px solid #000;
   margin: 3rem 12rem;
+
+  @media (max-width: 768px) {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
 `;
 
 const ContentText1 = styled.p`
-  text-align: start;
+  text-align: center;
   margin: 0.1em 0;
   font-size: 1.2rem;
 `;
+
 const ContentText2 = styled.p`
-    text-align: end;
+  text-align: center;
   margin: 0.1em 0;
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 `;
+
 const ContentText3 = styled.p`
-    text-align: start;
+  text-align: center;
   margin: 0.1em 0;
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 `;
 
 const ButtonsContainer = styled.div`
